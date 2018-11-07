@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 align='center'>Submit Blog</h1>
+    <form method='post'>
+        <label for='heading' style="display: inline-block;
+        width: 25%">
+            New Title:<br/>
+            <input type="text" name='heading' value="{{ request.form['heading'] }}"/>
+            <span class='error'>{{ heading_err }}</span>
+            <br/><br/><br/>
+            New Body:<br/>
+            <textarea name="text" value="{{ request.form['body'] }}"></textarea>
+            <span class='error'>{{ body_err }}</span>
+            <br/><br/><br/>
+        
+        <input type="submit" value='Add Blog' />
+        </label>
+    </form>
+
+    <hr />
+
+{% if error %}
+<p class='error'>{{ error }}</p>
+{% endif %}
+
+{% endblock %}

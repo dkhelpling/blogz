@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <nav>
+            <a href="/blog">Blog Listings</a>
+            <a href="/newpost">New Post</a>
+        </nav>
+        <style>
+            <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+        </style>
+    </head>
+<body>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

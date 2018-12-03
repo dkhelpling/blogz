@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+      <div>
+
+        <h1>User Posts</h1>
+
+        <hr>
+        {% for submission in submissions %}
+        <div class="post">
+
+          <a href="/blog?id={{submission.id}}"><h2>{{ submission.title }}</h2></a>
+          <p>{{ submission.body }}</p>
+          <p>Submitted by: <a href="/blog?userid={{submission.owner_id}}">{{ submission.owner.username }}</a></p>
+
+        </div>
+        {% endfor %}
+      </div>
+{% endblock %}

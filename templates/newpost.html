@@ -1,27 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 align='center'>Submit Blog</h1>
-    <form method='post'>
-        <label for='heading' style="display: inline-block;
-        width: 25%">
-            New Title:<br/>
-            <input type="text" name='heading' value="{{ request.form['heading'] }}"/>
-            <span class='error'>{{ heading_err }}</span>
-            <br/><br/><br/>
-            New Body:<br/>
-            <textarea name="text" value="{{ request.form['body'] }}"></textarea>
-            <span class='error'>{{ body_err }}</span>
-            <br/><br/><br/>
-        
-        <input type="submit" value='Add Blog' />
-        </label>
-    </form>
+      <div class="new-post">
 
-    <hr />
+        <h1 class="post-header">New Post</h1>
 
-{% if error %}
-<p class='error'>{{ error }}</p>
-{% endif %}
+        <form method='post'>
 
+          <input type="text" name="title" value='{{blog_title}}' placeholder="Your Title Here"/>
+          <p class="error">{{title_error}}</p><br><br>
+
+          <textarea type="text" name="body" placeholder="Your Text Here">{{blog_body}}</textarea>
+          <p class="error">{{body_error}}</p><br>
+
+          <input type="submit" value="Post"/>
+
+        </form>
+
+      </div>
 {% endblock %}
